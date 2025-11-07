@@ -1,33 +1,37 @@
-import java.util.Scanner;
-
 public class Turma {
-    private Aluno[] alunos = new Aluno[5];
+    private Aluno[] alunos;
     private int quantidade;
-    Scanner scanner = new Scanner(System.in);
+
+    public Turma() {
+      alunos = new Aluno[5];
+      quantidade = 0;
+    }
 
     public void adicionarAluno(Aluno aluno) {
-        for (int i = 0; i < alunos.length; i++) {
-            if(alunos[i] != null){
-                alunos[i] = aluno;
-
-            }
+        if(quantidade < alunos.length) {
+          alunos[quantidade] = aluno;
+          quantidade++;
         }
     }
 
     public void listarAlunos() {
+      System.out.println("=== Lista de Alunos ===");
         for(int i = 0; i < alunos.length; i++) {
-            System.out.println(alunos[i]);
+            if (alunos[i] != null) {
+              alunos[i].exibirInfo();
+            }
         }
     }
 
     public Aluno buscarPorMatricula(String matricula) {
-        System.out.println("=== Buscar Aluno ===");
-        System.out.println("Digite a matrícula: " + matricula);
-        for(int i = 0; i < alunos.length; i++) {
-            if(alunos[i].getMatricula() == matricula) {
-                return alunos[i]; 
+      System.out.println("=== Buscar Aluno ===");
+      System.out.println("Digite a matrícula: " + matricula);
+      for(int i = 0; i < alunos.length; i++) {
+            if (alunos[i] != null && alunos[i].getMatricula().equals(matricula)) {
+              return alunos[i];
             }
         }
-        return null;
+      return null;
     }
+
 }
