@@ -30,7 +30,6 @@ public class Aluno {
 
     public void exibirInfo() {
         System.out.println(
-            "=== Lista de Alunos ===\n" +
             "Nome: " + this.nome + " | " + 
             "Matrícula: " + this.matricula + " | " + 
             "Notas: " + this.nota1 + " e " + this.nota2 + " | " +
